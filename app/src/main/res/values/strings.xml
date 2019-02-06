@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">NetflixReviewApp</string>
+    <string name="searchbutton">Search</string>
+    <string name="addButton">Add Movie Review</string>
+    <string name="userRevBtn">My Reviews</string>
+    
+    <string name="menu_home">Home</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

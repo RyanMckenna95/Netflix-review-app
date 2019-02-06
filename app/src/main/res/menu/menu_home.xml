@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ie.r.netflixreviewapp.activities.Base">
+
+    <item android:id="@+id/sign_out"
+        android:title="Help"
+        android:orderInCategory="100"
+        android:onClick="signout"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/menu_info"
+        android:title="Info"
+        android:orderInCategory="100"
+        android:onClick="menuInfo"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/home"
+        android:onClick="menuHome"
+        android:orderInCategory="100"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+
+</menu>

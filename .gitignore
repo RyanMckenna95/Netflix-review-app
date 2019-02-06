@@ -11,3 +11,4 @@
 /build
 /captures
 .externalNativeBuild
+app/scr/main/res/values/APIkey.xml
