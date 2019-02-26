@@ -3,7 +3,14 @@
     <string name="searchbutton">Search</string>
     <string name="addButton">Add Movie Review</string>
     <string name="userRevBtn">My Reviews</string>
+    <string name="appAbout">About Netflix Reviews</string>
+    <string name="appDesc">NetflixReviews allows users to write reviews for their favorite netflix shows and movies</string>
+    <string name="appMoreInfo">There is no more information about NetflixReviews as I am still building it</string>
     
     <string name="menu_home">Home</string>
     <string name="sign_out">Sign Out</string>
+
+
+    <string name="recentlyViewedLbl">Recently Added Reviews</string>
+
 </resources>

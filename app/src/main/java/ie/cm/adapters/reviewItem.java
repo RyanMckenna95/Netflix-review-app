@@ -1,4 +1,4 @@
-package ie.adapters;
+package ie.cm.adapters;
 
 public class reviewItem {
 }
