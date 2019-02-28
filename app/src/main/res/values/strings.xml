@@ -12,5 +12,12 @@
 
 
     <string name="recentlyViewedLbl">Recently Added Reviews</string>
+    <string name="addReviewLbl">Create Review</string>
+    <string name="TitleLbl">Title :</string>
+
+    <string name="appWebsite">https://developers.themoviedb.org</string>
+    <string name="reviewLbl">Review :</string>
+    <string name="addReviewBtnLbl">Create Review</string>
+    <string name="emptyMessageLbl">You have no Review\'s added yet</string>
 
 </resources>

@@ -20,8 +20,8 @@ public class NetflixReviewApp extends Application{
     public void onTerminate()
     {
         super.onTerminate();
-        Log.v("coffeemate", "Realm Database Closed");
+        Log.v("netflixReview", "Realm Database Closed");
         dbManager.close();
     }
-    }
+
 }
