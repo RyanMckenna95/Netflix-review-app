@@ -10,7 +10,7 @@ public class NetflixReviewApp extends Application{
 
     public void onCreate(){
         super.onCreate();
-        Log.v("netflixReview", "Netflixreview App Started");
+        Log.v("netflixReview", "NetflixReview App Started");
         dbManager = new DBManager(this);
         dbManager.open();
         Log.v("netflixReview", "Realm Database Created & Opened");

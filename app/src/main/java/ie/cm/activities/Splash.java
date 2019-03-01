@@ -49,7 +49,7 @@ public class Splash extends Activity{
                     Splash.this.startActivity(intent);
                 }
             }
-        }, SPLASH_DURATION); /
+        }, SPLASH_DURATION);
     }
 
     @Override
@@ -59,4 +59,4 @@ public class Splash extends Activity{
         super.onBackPressed();
     }
 }
-}
+

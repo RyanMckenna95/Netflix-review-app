@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        android:onClick="menuHome"/>
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/netbutton"
-            android:title="Home" />
-        <item
-            android:id="@+id/nav_add"
-            android:icon="@drawable/review_pen"
-            android:title="Create a review" />
-        <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/whitesearchicon"
-            android:title="Search" />
-        <item
-            android:id="@+id/nav_favourites"
-            android:icon="@drawable/fav_star"
-            android:title="View Favourites" />
-
-    </group>
-
-
+    <item android:id="@+id/menu_info"
+        android:title="Info"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:onClick="menuInfo"/>
 </menu>
+
+
+
+

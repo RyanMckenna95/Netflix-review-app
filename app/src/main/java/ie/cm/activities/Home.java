@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,7 +17,9 @@ import android.view.MenuItem;
 
 
 import ie.cm.R;
+import ie.cm.fragments.AddReviewFragment;
 import ie.cm.fragments.EditFragment;
+import ie.cm.fragments.ReviewFragment;
 import ie.cm.fragments.SearchFragment;
 
 public class Home extends Base
@@ -59,7 +62,7 @@ public class Home extends Base
 
         ft = getSupportFragmentManager().beginTransaction();
 
-        CoffeeFragment fragment = CoffeeFragment.newInstance();
+        ReviewFragment fragment = ReviewFragment.newInstance();
         ft.replace(R.id.homeFrame, fragment);
         ft.commit();
 
@@ -79,40 +82,56 @@ public class Home extends Base
         ft = getSupportFragmentManager().beginTransaction();
 
         if (id == R.id.nav_home) {
-            fragment = CoffeeFragment.newInstance();
-            ((CoffeeFragment)fragment).favourites = false;
+            fragment = ReviewFragment.newInstance();
+            ((ReviewFragment) fragment).favourites = false;
             ft.replace(R.id.homeFrame, fragment);
             ft.addToBackStack(null);
             ft.commit();
 
         } else if (id == R.id.nav_add) {
-            fragment = AddFragment.newInstance();
+            fragment = AddReviewFragment.newInstance();
             ft.replace(R.id.homeFrame, fragment);
             ft.addToBackStack(null);
             ft.commit();
 
         } else if (id == R.id.nav_favourites) {
-            fragment = CoffeeFragment.newInstance();
-            ((CoffeeFragment)fragment).favourites = true;
+            fragment = ReviewFragment.newInstance();
+            ((ReviewFragment) fragment).favourites = true;
             ft.replace(R.id.homeFrame, fragment);
             ft.addToBackStack(null);
             ft.commit();
 
         } else if (id == R.id.nav_search) {
             fragment = SearchFragment.newInstance();
-            ((CoffeeFragment)fragment).favourites = false;
+            ((ReviewFragment) fragment).favourites = false;
             ft.replace(R.id.homeFrame, fragment);
             ft.addToBackStack(null);
             ft.commit();
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_camera) {
 
         }
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+    }
+
+    @Override
+    public void toggle(View v) {
+        EditFragment editFrag = (EditFragment)
+                getSupportFragmentManager().findFragmentById(R.id.homeFrame);
+        if (editFrag != null) {
+            editFrag.toggle(v);
+        }
+    }
+
+    @Override
+    public void saveReview(View v) {
+        EditFragment editFrag = (EditFragment)
+                getSupportFragmentManager().findFragmentById(R.id.homeFrame);
+        if (editFrag != null) {
+            editFrag.saveReview(v);
+        }
     }
 }
+

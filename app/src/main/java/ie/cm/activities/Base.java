@@ -24,11 +24,13 @@ public class Base extends AppCompatActivity {
 
     public NetflixReviewApp app;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = (NetflixReviewApp) getApplication();
-    }
+
+         app = (NetflixReviewApp) getApplication();
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

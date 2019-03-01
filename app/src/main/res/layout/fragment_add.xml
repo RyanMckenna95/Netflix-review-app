@@ -7,28 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".fragments.AddReviewFragment">
 
-    <TextView
-        android:id="@+id/addfooter"
-        android:layout_width="0dp"
-        android:layout_height="36dp"
-        android:background="@color/colorPrimary"
-        android:paddingTop="5dp"
-        android:text="@string/appWebsite"
-        android:textAlignment="center"
-        android:textColor="@color/colorFontWhite"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
     <TextView
         android:id="@+id/addShopTV"
-        android:layout_width="99dp"
+        android:layout_width="87dp"
         android:layout_height="33dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -38,51 +22,50 @@
         android:textColor="@color/colorFontBlack"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addShopET"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/addReviewET"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.187" />
 
     <TextView
         android:id="@+id/addNameTV"
-        android:layout_width="105dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="36dp"
+        android:layout_width="86dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:paddingTop="10dp"
-        android:text="@string/coffeeNameLbl"
+        android:text="@string/TitleLbl"
         android:textAlignment="textEnd"
         android:textColor="@color/colorFontBlack"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/addShopTV"
-        app:layout_constraintEnd_toStartOf="@+id/addNameET"
+        app:layout_constraintBottom_toTopOf="@+id/addReviewET"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.475" />
+        app:layout_constraintVertical_bias="0.136" />
 
     <EditText
         android:id="@+id/addNameET"
-        android:layout_width="189dp"
+        android:layout_width="225dp"
         android:layout_height="44dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:ems="10"
-        android:hint="Enter Coffee Name"
+        android:hint="Enter Title Here"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toEndOf="@+id/addNameTV"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintVertical_bias="0.036" />
 
 
     <EditText
-        android:id="@+id/addShopET"
+        android:id="@+id/addReviewET"
         android:layout_width="331dp"
-        android:layout_height="363dp"
+        android:layout_height="256dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
@@ -90,27 +73,41 @@
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.475" />
+        app:layout_constraintVertical_bias="0.376" />
 
-    <RatingBar
-        android:id="@+id/addRatingBar"
-        android:layout_width="242dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="12dp"
-        android:rating="1"
-        android:stepSize="0.5"
-        app:layout_constraintBottom_toTopOf="@+id/editfooter"
+    <NumberPicker
+        android:id="@+id/addRatingNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addShopET"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintTop_toBottomOf="@+id/addReviewET" />
+
+    <TextView
+        android:id="@+id/addCaptionTV"
+        android:layout_width="88dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="10dp"
+        android:text="@string/addCaptionLbl"
+        android:textAlignment="textEnd"
+        android:textColor="@color/colorFontBlack"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/addShopTV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addNameTV"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
-        android:id="@+id/addCoffeeBtn"
+        android:id="@+id/addReviewBtn"
         android:layout_width="173dp"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
@@ -122,10 +119,45 @@
         android:background="@color/colorFontOffWhite"
         android:elevation="1dp"
         android:text="@string/addReviewBtnLbl"
-        app:layout_constraintBottom_toTopOf="@+id/addfooter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addRatingBar" />
+        app:layout_constraintTop_toBottomOf="@+id/addRatingNum" />
+
+    <EditText
+        android:id="@+id/addCaptionET"
+        android:layout_width="221dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textShortMessage"
+        android:text="@string/addCaptionDs"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/addReviewET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toEndOf="@+id/addCaptionTV"
+        app:layout_constraintTop_toBottomOf="@+id/addNameET"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <TextView
+        android:id="@+id/ratingNum"
+        android:layout_width="37dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/ratingNum"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/addReviewBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/addRatingNum"
+        app:layout_constraintTop_toBottomOf="@+id/addReviewET"
+        app:layout_constraintVertical_bias="0.465" />
 
 
 </android.support.constraint.ConstraintLayout>
