@@ -7,13 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+import java.text.DecimalFormat;
 
 import ie.cm.R;
 import ie.cm.models.Review;
 
 public class ReviewItem {
-
     public View view;
 
     public ReviewItem(Context context, ViewGroup parent,
@@ -36,8 +35,6 @@ public class ReviewItem {
 
         ((TextView) view.findViewById(R.id.rowCaption)).setText(review.caption);
         ((TextView) view.findViewById(R.id.rowRating)).setText(review.rating + " *");
-
-
         ImageView imgIcon = view.findViewById(R.id.rowFavouriteImg);
 
         if (review.favourite == true)
