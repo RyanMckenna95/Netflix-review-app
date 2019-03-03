@@ -60,7 +60,7 @@ public class TrendingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        getActivity().setTitle(R.string.searchReviewsLbl);
+        getActivity().setTitle(R.string.trendingReviewLbl);
         View v = inflater.inflate(R.layout.trending_fragment, container, false);
         return v;
     }

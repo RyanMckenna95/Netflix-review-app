@@ -30,6 +30,7 @@
     <string name="editTitleLbl">Title:</string>
     <string name="deleteReviewsLbl">Delete Review\'s</string>
     <string name="searchReviewsLbl">Search Review\'s</string>
+    <string name="trendingReviewLbl">What\'s Trending</string>
 
     <string-array name="reviewTypes">
         <item>All Types</item>
