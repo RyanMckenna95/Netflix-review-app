@@ -41,6 +41,16 @@ public class SearchFragment extends ReviewFragment
         View v = inflater.inflate(R.layout.fragment_search, container, false);
         listView = v.findViewById(R.id.searchList); //Bind to the list on our Search layout
         setListView(v);
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter
+                .createFromResource(getActivity(), R.array.reviewTypes,
+                        android.R.layout.simple_spinner_item);
+
+        spinnerAdapter
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner spinner = v.findViewById(R.id.searchSpinner);
+        spinner.setAdapter(spinnerAdapter);
+        spinner.setOnItemSelectedListener(this);
 
 
         searchView = v.findViewById(R.id.searchView);

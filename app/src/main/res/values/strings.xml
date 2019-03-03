@@ -31,4 +31,9 @@
     <string name="deleteReviewsLbl">Delete Review\'s</string>
     <string name="searchReviewsLbl">Search Review\'s</string>
 
+    <string-array name="reviewTypes">
+        <item>All Types</item>
+        <item>Favourites</item>
+    </string-array>
+
 </resources>

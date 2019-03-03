@@ -13,7 +13,7 @@ import ie.cm.R;
 public class Splash extends Activity{
 
     private boolean 			mIsBackButtonPressed;
-    private static final int 	SPLASH_DURATION = 3000; // 3 seconds
+    private static final int 	SPLASH_DURATION = 4000;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

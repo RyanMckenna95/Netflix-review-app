@@ -21,6 +21,8 @@ import ie.cm.main.NetflixReviewApp;
 import ie.cm.R;
 
 public class Base extends AppCompatActivity {
+    public static final String IMAGE_URL = "https://image.tmdb.org/t/p/w200/";
+    public static final String API_URL = "https://api.themoviedb.org/3/trending/all/day?api_key=a9d0e77cbdc5499ba36ac78ea253545a";
 
     public NetflixReviewApp app;
 
@@ -29,8 +31,8 @@ public class Base extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-         app = (NetflixReviewApp) getApplication();
-}
+        app = (NetflixReviewApp) getApplication();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

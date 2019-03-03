@@ -21,6 +21,7 @@ import ie.cm.fragments.AddReviewFragment;
 import ie.cm.fragments.EditFragment;
 import ie.cm.fragments.ReviewFragment;
 import ie.cm.fragments.SearchFragment;
+import ie.cm.fragments.TrendingFragment;
 
 public class Home extends Base
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -36,19 +37,7 @@ public class Home extends Base
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Information", Snackbar.LENGTH_LONG)
-                        .setAction("More Info...", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
 
-                            }
-                        }).show();
-            }
-        });
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -108,11 +97,17 @@ public class Home extends Base
             ft.addToBackStack(null);
             ft.commit();
 
+        } else if (id == R.id.nav_trending) {
+            fragment = TrendingFragment.newInstance();
+            ft.replace(R.id.homeFrame, fragment);
+            ft.addToBackStack(null);
+            ft.commit();
+
 
         }
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
 
     }
 

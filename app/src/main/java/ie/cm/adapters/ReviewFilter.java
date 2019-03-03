@@ -35,7 +35,7 @@ public class ReviewFilter extends Filter {
     @Override
     protected void publishResults(CharSequence prefix, FilterResults results) {
 
-        if ((prefix==null || prefix.length()==0))
+        if ((prefix == null || prefix.length() == 0))
             if(!favourites)
                 realmReviewResults=dbManager.getAll();
             else
@@ -43,10 +43,8 @@ public class ReviewFilter extends Filter {
         else {
             realmReviewResults=dbManager.realmDatabase
                     .where(Review.class)
-                    .equalTo("favourite",favourites)
-                    .contains("title",prefix.toString(), Case.INSENSITIVE)
-                    .or()
-                    .contains("caption",prefix.toString(),Case.INSENSITIVE)
+                   // .equalTo("favourite",favourites)
+                    .contains("name",prefix.toString(), Case.INSENSITIVE)
                     .findAll();
         }
         adapter.reviewList=realmReviewResults;
