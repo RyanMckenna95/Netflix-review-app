@@ -1,4 +1,4 @@
-package ie.cm.adapters;
+package ie.nr.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import ie.cm.R;
-import ie.cm.models.Movie;
+import ie.nr.R;
+import ie.nr.models.Movie;
 import java.util.List;
 
 public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHolder> {

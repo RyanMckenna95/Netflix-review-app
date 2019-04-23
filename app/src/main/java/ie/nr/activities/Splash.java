@@ -1,4 +1,4 @@
-package ie.cm.activities;
+package ie.nr.activities;
 
 import android.graphics.ImageDecoder;
 import android.graphics.drawable.AnimatedImageDrawable;
@@ -8,7 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.ImageView;
 
-import ie.cm.R;
+import ie.nr.R;
 
 public class Splash extends Activity{
 

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "997372079332",
+    "firebase_url": "https://netflixreviewapp.firebaseio.com",
+    "project_id": "netflixreviewapp",
+    "storage_bucket": "netflixreviewapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997372079332:android:bdd51d97288aad51",
+        "android_client_info": {
+          "package_name": "ie.nr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997372079332-4tj4ggovrga1g15kkeuqpc38u1mkik7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ie.nr",
+            "certificate_hash": "18a296330eeefd1ff74b5659337e15a43ea978c6"
+          }
+        },
+        {
+          "client_id": "997372079332-kusavelautnlp1ni7dpllpr8u7mipr68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlOe0pl02pAOkBy4vCF92bYKeCc9r_DKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997372079332-kusavelautnlp1ni7dpllpr8u7mipr68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

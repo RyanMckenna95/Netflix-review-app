@@ -1,4 +1,4 @@
-package ie.cm.fragments;
+package ie.nr.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
-import android.widget.RatingBar;
 import android.widget.Toast;
 
-import ie.cm.R;
-import ie.cm.activities.Home;
-import ie.cm.main.NetflixReviewApp;
-import ie.cm.models.Review;
+import ie.nr.R;
+import ie.nr.activities.Home;
+import ie.nr.main.NetflixReviewApp;
+import ie.nr.models.Review;
 
 public class AddReviewFragment extends Fragment {
 

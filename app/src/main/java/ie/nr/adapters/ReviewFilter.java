@@ -1,9 +1,9 @@
-package ie.cm.adapters;
+package ie.nr.adapters;
 
 import android.widget.Filter;
 
-import ie.cm.db.DBManager;
-import ie.cm.models.Review;
+import ie.nr.db.DBManager;
+import ie.nr.models.Review;
 import io.realm.Case;
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmResults;

@@ -1,4 +1,4 @@
-package ie.cm.adapters;
+package ie.nr.adapters;
 
 import android.content.Context;
 import android.view.View;
@@ -7,8 +7,8 @@ import android.widget.ArrayAdapter;
 
 import java.util.List;
 
-import ie.cm.R;
-import ie.cm.models.Review;
+import ie.nr.R;
+import ie.nr.models.Review;
 
 public class ReviewListAdapter extends ArrayAdapter<Review> {
         private Context context;

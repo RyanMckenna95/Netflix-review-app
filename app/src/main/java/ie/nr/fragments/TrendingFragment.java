@@ -1,4 +1,4 @@
-package ie.cm.fragments;
+package ie.nr.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.view.LayoutInflater;
@@ -20,10 +19,10 @@ import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import ie.cm.R;
-import ie.cm.activities.Base;
-import ie.cm.adapters.TrendingAdapter;
-import ie.cm.models.Movie;
+import ie.nr.R;
+import ie.nr.activities.Base;
+import ie.nr.adapters.TrendingAdapter;
+import ie.nr.models.Movie;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

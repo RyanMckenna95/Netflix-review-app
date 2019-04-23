@@ -1,4 +1,4 @@
-package ie.cm.fragments;
+package ie.nr.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Spinner;
 
-import ie.cm.R;
+import ie.nr.R;
 
 public class SearchFragment extends ReviewFragment
         implements AdapterView.OnItemSelectedListener {

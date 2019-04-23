@@ -1,4 +1,4 @@
-package ie.cm.fragments;
+package ie.nr.fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -16,12 +16,12 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import ie.cm.R;
-import ie.cm.activities.Base;
-import ie.cm.adapters.ReviewFilter;
+import ie.nr.R;
+import ie.nr.activities.Base;
+import ie.nr.adapters.ReviewFilter;
 
-import ie.cm.adapters.ReviewListAdapter;
-import ie.cm.models.Review;
+import ie.nr.adapters.ReviewListAdapter;
+import ie.nr.models.Review;
 
 public class ReviewFragment extends Fragment implements
         AdapterView.OnItemClickListener,

@@ -31,6 +31,7 @@
     <string name="deleteReviewsLbl">Delete Review\'s</string>
     <string name="searchReviewsLbl">Search Review\'s</string>
     <string name="trendingReviewLbl">What\'s Trending</string>
+    <string name="ReleaseDatesLbl">Release Dates</string>
 
     <string-array name="reviewTypes">
         <item>All Types</item>

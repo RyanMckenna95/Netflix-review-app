@@ -1,6 +1,6 @@
-package ie.cm.db;
+package ie.nr.db;
 
-import ie.cm.models.Review;
+import ie.nr.models.Review;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;

@@ -1,6 +1,6 @@
-package ie.cm.main;
+package ie.nr.main;
 
-import ie.cm.db.DBManager;
+import ie.nr.db.DBManager;
 import android.app.Application;
 import android.util.Log;
 

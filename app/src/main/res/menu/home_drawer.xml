@@ -22,6 +22,12 @@
             android:id="@+id/nav_trending"
             android:icon="@drawable/trending_icon"
             android:title="View Trending"/>
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/calendar_icon"
+            android:title="Calendar"/>
+        <item
+            android:title="Sign Out"/>
     </group>
 
 

@@ -1,11 +1,8 @@
-package ie.cm.activities;
+package ie.nr.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,12 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 
-import ie.cm.R;
-import ie.cm.fragments.AddReviewFragment;
-import ie.cm.fragments.EditFragment;
-import ie.cm.fragments.ReviewFragment;
-import ie.cm.fragments.SearchFragment;
-import ie.cm.fragments.TrendingFragment;
+import ie.nr.R;
+import ie.nr.fragments.AddReviewFragment;
+import ie.nr.fragments.EditFragment;
+import ie.nr.fragments.ReviewFragment;
+import ie.nr.fragments.SearchFragment;
+import ie.nr.fragments.TrendingFragment;
 
 public class Home extends Base
         implements NavigationView.OnNavigationItemSelectedListener,

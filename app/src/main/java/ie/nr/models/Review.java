@@ -1,4 +1,4 @@
-package ie.cm.models;
+package ie.nr.models;
 
 import java.util.UUID;
 
