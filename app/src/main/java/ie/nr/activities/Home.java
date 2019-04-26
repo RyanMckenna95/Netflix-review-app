@@ -48,7 +48,7 @@ public class Home extends Base
 
         ft = getSupportFragmentManager().beginTransaction();
 
-        ReviewFragment fragment = ReviewFragment.newInstance();
+        TrendingFragment fragment = TrendingFragment.newInstance();
         ft.replace(R.id.homeFrame, fragment);
         ft.commit();
 

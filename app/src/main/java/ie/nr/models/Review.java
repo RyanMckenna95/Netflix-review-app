@@ -19,9 +19,9 @@ public class Review extends RealmObject {
 
     }
 
-    public Review(String name, String review, double rating,String caption, boolean favy)
+    public Review(String reviewId, String name, String review, double rating,String caption, boolean favy)
     {
-        this.reviewId= UUID.randomUUID().toString();
+        this.reviewId= reviewId;
         this.name=name;
         this.review=review;
         this.caption=caption;

@@ -1,5 +1,6 @@
 package ie.nr.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,12 +13,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.net.PasswordAuthentication;
 
 import ie.nr.R;
 
@@ -27,26 +25,22 @@ public class Registration extends AppCompatActivity {
     private String email,password;
     private EditText mail, pass;
     private Button registration;
-    private FirebaseApp app;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.register);
-
+        mAuth = FirebaseAuth.getInstance();
         mail=findViewById(R.id.Reg_email);
         pass=findViewById(R.id.Reg_password);
         registration=findViewById(R.id.RegBtn);
 
-
-        mAuth = FirebaseAuth.getInstance();
-
-
-        email=mail.getText().toString();
-        password=pass.getText().toString();
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                email = mail.getText().toString();
+                password = pass.getText().toString();
+                Log.i("TESTING===>>>", "HEllo" + email + password);
                 registerUser(email, password);
             }
         });
@@ -63,6 +57,8 @@ public class Registration extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            startActivity(new Intent(Registration.this, LogIn.class));
+                            finish();
                             // updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

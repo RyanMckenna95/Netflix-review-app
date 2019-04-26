@@ -13,6 +13,10 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import ie.nr.R;
 import ie.nr.activities.Home;
 import ie.nr.main.NetflixReviewApp;
@@ -26,6 +30,9 @@ public class AddReviewFragment extends Fragment {
     private NumberPicker ratingNum;
     private NetflixReviewApp app;
     private Button saveButton;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mDatabaseReference;
 
     public AddReviewFragment(){
 
@@ -33,14 +40,12 @@ public class AddReviewFragment extends Fragment {
 
     public static AddReviewFragment newInstance(){
         AddReviewFragment fragmant = new AddReviewFragment();
-
         return fragmant;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         app = (NetflixReviewApp) getActivity().getApplication();
     }
 
@@ -50,18 +55,14 @@ public class AddReviewFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_add, container, false);
         getActivity().setTitle(R.string.addReviewLbl);
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference("reviews");
         name = v.findViewById(R.id.addNameET);
         review =  v.findViewById(R.id.addReviewET);
         caption =  v.findViewById(R.id.addCaptionET);
         ratingNum =  v.findViewById(R.id.addRatingNum);
         saveButton = v.findViewById(R.id.addReviewBtn);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addReview();
-            }
-        });
-
         return v;
     }
 
@@ -73,6 +74,12 @@ public class AddReviewFragment extends Fragment {
 
         numberPicker.setMinValue(1);
         numberPicker.setMaxValue(10);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addReview();
+            }
+        });
 
 
         numberPicker.setOnValueChangedListener(onValueChangeListener);
@@ -83,7 +90,7 @@ public class AddReviewFragment extends Fragment {
                 @Override
                 public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                     Toast.makeText(getContext(),
-                    "selected number "+ picker.getValue(), Toast.LENGTH_SHORT);
+                            "selected number "+ picker.getValue(), Toast.LENGTH_SHORT);
                 }
             };
 
@@ -97,9 +104,12 @@ public class AddReviewFragment extends Fragment {
 
         if ((mediaName.length() > 0) && (userReview.length() > 0)
                 && (addCaption.length() > 0)) {
-            Review c = new Review(mediaName, userReview,userRating,addCaption,false);
+            String reviewId = mFirebaseDatabase.getReference("Reviews").push().getKey();
+            Review c = new Review(reviewId, mediaName, userReview,userRating,addCaption,false);
+            mDatabaseReference.child(reviewId).setValue(c);
 
-            app.dbManager.add(c);
+
+            //app.dbManager.add(c);
             startActivity(new Intent(this.getActivity(), Home.class));
         } else
             Toast.makeText(
@@ -108,5 +118,6 @@ public class AddReviewFragment extends Fragment {
                             + "\'Name\', \'Review\' and \'Caption\'",
                     Toast.LENGTH_SHORT).show();
     }
+
 
 }

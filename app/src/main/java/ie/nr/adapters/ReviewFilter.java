@@ -35,26 +35,26 @@ public class ReviewFilter extends Filter {
     @Override
     protected void publishResults(CharSequence prefix, FilterResults results) {
 
-        if ((prefix == null || prefix.length() == 0))
-            if(!favourites)
-                realmReviewResults=dbManager.getAll();
-            else
-                realmReviewResults=dbManager.getFavourites();
-        else {
-            realmReviewResults=dbManager.realmDatabase
-                    .where(Review.class)
-                   // .equalTo("favourite",favourites)
-                    .contains("name",prefix.toString(), Case.INSENSITIVE)
-                    .findAll();
-        }
-        adapter.reviewList=realmReviewResults;
-
-        if(adapter.reviewList.size()>0)
-            adapter.notifyDataSetChanged();
-        else {
-            adapter.notifyDataSetInvalidated();
-            adapter.reviewList=originalReviewList;
-        }
+//        if ((prefix == null || prefix.length() == 0))
+//            if(!favourites)
+//                realmReviewResults=dbManager.getAll();
+//            else
+//                realmReviewResults=dbManager.getFavourites();
+//        else {
+//            realmReviewResults=dbManager.realmDatabase
+//                    .where(Review.class)
+//                   // .equalTo("favourite",favourites)
+//                    .contains("name",prefix.toString(), Case.INSENSITIVE)
+//                    .findAll();
+//        }
+//        adapter.reviewList=realmReviewResults;
+//
+//        if(adapter.reviewList.size()>0)
+//            adapter.notifyDataSetChanged();
+//        else {
+//            adapter.notifyDataSetInvalidated();
+//            adapter.reviewList=originalReviewList;
+//        }
 
     }
 }

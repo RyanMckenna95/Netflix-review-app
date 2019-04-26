@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
-apply plugin: 'com.google.gms.google-services'
+
 
 android {
     compileSdkVersion 28
@@ -25,6 +25,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "com.google.firebase:firebase-core:16.0.3"
     implementation 'com.google.firebase:firebase-database:16.0.1'
     implementation 'com.google.firebase:firebase-auth:16.0.3'
     testImplementation 'junit:junit:4.12'
@@ -37,4 +38,7 @@ dependencies {
     implementation "com.dubsmash.volley:library:2.0.1"
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.github.bumptech.glide:glide:3.5.2'
+    implementation "io.reactivex.rxjava2:rxjava:2.1.8"
 }
+apply plugin: 'com.google.gms.google-services'
+
