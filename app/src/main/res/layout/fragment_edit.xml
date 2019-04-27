@@ -120,7 +120,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/colorFontOffWhite"
         android:elevation="5dp"
-        android:onClick="saveReview"
         android:text="@string/saveReviewBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

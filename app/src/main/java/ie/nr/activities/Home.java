@@ -118,11 +118,11 @@ public class Home extends Base
     }
 
     @Override
-    public void saveReview(View v) {
+    public void updateReview(View v) {
         EditFragment editFrag = (EditFragment)
                 getSupportFragmentManager().findFragmentById(R.id.homeFrame);
         if (editFrag != null) {
-            editFrag.saveReview(v);
+            editFrag.updateReview();
         }
     }
 }

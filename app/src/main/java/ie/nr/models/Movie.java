@@ -5,6 +5,7 @@ public class Movie {
     public String movieTitle;
     public String releaseDate;
     public String movieImage;
+    public String movieOverview;
 
     public Movie() {
     }

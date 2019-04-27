@@ -3,10 +3,12 @@ package ie.nr.fragments;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -24,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -33,6 +36,8 @@ import ie.nr.adapters.ReviewFilter;
 
 import ie.nr.adapters.ReviewListAdapter;
 import ie.nr.models.Review;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class ReviewFragment extends Fragment implements
         AdapterView.OnItemClickListener,
@@ -48,6 +53,9 @@ public class ReviewFragment extends Fragment implements
     public FirebaseAuth mAuth;
     public ArrayList<Review> reviewList;
     public ArrayList<Review> myReviews;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    Gson gson;
 
 
     public ReviewFragment() {
@@ -58,7 +66,7 @@ public class ReviewFragment extends Fragment implements
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Bundle activityInfo = new Bundle(); // Creates a new Bundle object
-        activityInfo.putString("reviewId", (String) view.getTag());
+        activityInfo.putInt("reviewId", i);
 
         Fragment fragment = EditFragment.newInstance(activityInfo);
         getActivity().setTitle(R.string.editReviewLbl);
@@ -108,17 +116,19 @@ public class ReviewFragment extends Fragment implements
     }
 
     public void setListView(View view) {
-        listView.setAdapter(listAdapter);
         listView.setOnItemClickListener(this);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listView.setMultiChoiceModeListener(this);
         listView.setEmptyView(view.findViewById(R.id.emptyList));
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -135,7 +145,8 @@ public class ReviewFragment extends Fragment implements
 
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                activity.app.dbManager.delete(review.reviewId); // remove from our list
+                mFirebaseDatabase.getReference("reviews").child(review.reviewId).removeValue();
+                 // remove from our list
                 listAdapter.notifyDataSetChanged(); // refresh adapter
             }
         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -173,10 +184,12 @@ public class ReviewFragment extends Fragment implements
     public void deleteReviews(ActionMode actionMode) {
         Review c = null;
         for (int i = listAdapter.getCount() - 1; i >= 0; i--)
-            if (listView.isItemChecked(i))
-                activity.app.dbManager.delete(listAdapter.getItem(i).reviewId); //delete from DB
+            if (listView.isItemChecked(i)) {
+                Log.i("POS===>>>", String.valueOf(i));
+                //activity.app.dbManager.delete(listAdapter.getItem(i).reviewId); //delete from DB
 
-        actionMode.finish();
+                //actionMode.finish();
+            }
 
         if (favourites) {
             //Update the filters data
@@ -201,12 +214,14 @@ public class ReviewFragment extends Fragment implements
                     @Override
                     public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            reviewList.clear();
+                            Base.reviewArrayList.clear();
                             for (DataSnapshot review : dataSnapshot.getChildren()) {
                                 Review rew = review.getValue(Review.class);
-                                reviewList.add(rew);
-                                listAdapter = new ReviewListAdapter(activity, ReviewFragment.this, reviewList);
+                                Base.reviewArrayList.add(rew);
+                                listView.setAdapter(listAdapter);
+                                listAdapter = new ReviewListAdapter(getContext(), ReviewFragment.this, Base.reviewArrayList);
                                 reviewFilter = new ReviewFilter(activity.app.dbManager, listAdapter);
+                                listAdapter.notifyDataSetChanged();
 
                                 if (favourites) {
                                     reviewFilter.setFilter("favourites"); // Set the filter text field from 'all' to 'favourites'
@@ -220,7 +235,7 @@ public class ReviewFragment extends Fragment implements
                                 else
                                     getActivity().setTitle(R.string.favouritesReviewLbl);
                             }
-                            listAdapter.notifyDataSetChanged();
+
                         }
                     }
 
