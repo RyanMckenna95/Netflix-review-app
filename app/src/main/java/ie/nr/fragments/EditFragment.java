@@ -24,8 +24,6 @@ import ie.nr.activities.BaseActivity;
 import ie.nr.main.NetflixReviewApp;
 import ie.nr.models.Review;
 
-import static android.content.Context.MODE_PRIVATE;
-
 public class EditFragment extends BaseFragment {
 
     public boolean isFavourite;
@@ -38,8 +36,6 @@ public class EditFragment extends BaseFragment {
     public FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
     private FirebaseAuth mAuth;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
     public Button editBtn;
 
     private OnFragmentInteractionListener mListener;
@@ -73,11 +69,6 @@ public class EditFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_edit, container, false);
-        pref = v.getContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-        editor = pref.edit();
-
-        //((TextView)v.findViewById(R.id.disTitleTV)).setText(aReview.name);
-
         name = v.findViewById(R.id.editTitleET);
         caption = v.findViewById(R.id.editCaptionET);
         reviewET = v.findViewById(R.id.editReviewET);
@@ -135,7 +126,7 @@ public class EditFragment extends BaseFragment {
 
 
             if ((!TextUtils.isEmpty(reviewTitle)) || (!TextUtils.isEmpty(reviewCaption)) || (!TextUtils.isEmpty(reviewStr))) {
-                Review newReview = new Review(BaseActivity.reviewArrayList.get(position).reviewId, reviewTitle, reviewCaption,ratingValue, reviewStr, true);
+                Review newReview = new Review(BaseActivity.reviewArrayList.get(position).reviewId, reviewTitle, reviewCaption,ratingValue, reviewStr, isFavourite);
                 mDatabase.getReference("reviews").child(BaseActivity.reviewArrayList.get(position).reviewId).setValue(newReview);
 
 
@@ -149,18 +140,13 @@ public class EditFragment extends BaseFragment {
     }
 
     public void toggle(View v) {
-
-//        if (isFavourite) {
-//            app.dbManager.setFavs(aReview,false);
-//            Toast.makeText(getActivity(), "Removed From Favourites", Toast.LENGTH_SHORT).show();
-//            isFavourite = false;
-//            editFavourite.setImageResource(R.drawable.favourites_72);
-//        } else {
-//            app.dbManager.setFavs(aReview,true);
-//            Toast.makeText(getActivity(), "Added to Favourites", Toast.LENGTH_SHORT).show();
-//            isFavourite = true;
-//            editFavourite.setImageResource(R.drawable.favourites_72_on);
-//        }
+        if (isFavourite) {
+            isFavourite = false;
+            editFavourite.setImageResource(R.drawable.favourites_72);
+        } else {
+            isFavourite = true;
+            editFavourite.setImageResource(R.drawable.favourites_72_on);
+        }
     }
 
     @Override

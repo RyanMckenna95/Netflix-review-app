@@ -11,7 +11,7 @@
         android:layout_height="21dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
         android:text="@string/recentlyViewedLbl"
         android:textAlignment="center"
@@ -37,69 +37,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/homeList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/footer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favouriteBarTV">
-
-        <TextView
-            android:id="@+id/emptyList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center_horizontal"
-            android:layout_marginTop="30dp"
-            android:text="@string/emptyMessageLbl"
-            android:textSize="12sp"
-            app:layout_constraintHorizontal_bias="0.576"
-            app:layout_constraintVertical_bias="0.533" />
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/favouriteReviewTitle"
-        android:layout_width="174dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TitleName"
-        android:textAlignment="center"
-        android:textColor="@color/colorFontBlack"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/favouriteReviewCation"
-        android:layout_width="94dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="20dp"
-        android:text="caption"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favouriteReviewTitle" />
-
-    <TextView
-        android:id="@+id/favouriteReviewRating"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:layout_marginTop="8dp"
-        android:text="Rating"
-        android:textAlignment="center"
-        android:textColor="@color/colorFontRed"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/favouriteBarTV" />
 
 
 </android.support.constraint.ConstraintLayout>

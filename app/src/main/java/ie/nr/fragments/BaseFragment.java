@@ -3,16 +3,9 @@ package ie.nr.fragments;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 import ie.nr.R;
 
 public class BaseFragment  extends Fragment {
-    FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
-
-
     public static void addReviewFragment (FragmentActivity activity) {
         AddReviewFragment addReviewFragment = new AddReviewFragment();
         activity.getSupportFragmentManager().beginTransaction()
@@ -60,4 +53,14 @@ public class BaseFragment  extends Fragment {
                 .addToBackStack(null)
                 .commit();
     }
+
+    public static void favouriteFragment(FragmentActivity activity) {
+        FavouriteFragment favouriteFragment = new FavouriteFragment();
+        activity.getSupportFragmentManager().beginTransaction()
+                .replace(R.id.homeFrame, favouriteFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+
 }

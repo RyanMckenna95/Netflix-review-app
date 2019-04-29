@@ -76,6 +76,8 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             BaseFragment.searchFragment(this);
         }else if (id == R.id.nav_trending){
             BaseFragment.trendingFragment(this);
+        }else if(id == R.id.nav_favourites){
+            BaseFragment.favouriteFragment(this);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -51,9 +51,6 @@ public class ReviewFragment extends BaseFragment implements
     public FirebaseAuth mAuth;
     public ArrayList<Review> reviewList;
     public ArrayList<Review> myReviews;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
-
 
     public ReviewFragment() {
         // Required empty public constructor
@@ -220,14 +217,12 @@ public class ReviewFragment extends BaseFragment implements
                                 reviewFilter = new ReviewFilter(activity.app.dbManager, listAdapter);
                                 listAdapter.notifyDataSetChanged();
 
-                                if (favourites) {
+                                if (rew.favourite) {
                                     reviewFilter.setFilter("favourites"); // Set the filter text field from 'all' to 'favourites'
                                     reviewFilter.filter(null); // Filter the data, but don't use any prefix
                                     listAdapter.notifyDataSetChanged(); // Update the adapter
                                 }
-
-
-                                if (!favourites)
+                                if (!rew.favourite)
                                     getActivity().setTitle(R.string.recentlyViewedLbl);
                                 else
                                     getActivity().setTitle(R.string.favouritesReviewLbl);

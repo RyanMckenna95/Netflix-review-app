@@ -19,7 +19,7 @@
     <string name="favouritesReviewLbl">Favourite Review\'s</string>
     <string name="appWebsite">https://developers.themoviedb.org</string>
     <string name="reviewLbl">Review :</string>
-    <string name="addReviewBtnLbl">Create Review</string>
+    <string name="addReviewBtnLbl">Return to list</string>
     <string name="emptyMessageLbl">You have no Review\'s added yet</string>
     <string name="addCaptionLbl">Caption:</string>
     <string name="addCaptionDs">Add Caption Here</string>
@@ -29,7 +29,7 @@
     <string name="editCaptionLbl">Caption:</string>
     <string name="editTitleLbl">Title:</string>
     <string name="deleteReviewsLbl">Delete Review\'s</string>
-    <string name="searchReviewsLbl">Search Review\'s</string>
+    <string name="searchReviewsLbl">Search Movie\'s</string>
     <string name="trendingReviewLbl">What\'s Trending</string>
     <string name="ReleaseDatesLbl">Release Dates</string>
 
