@@ -22,4 +22,4 @@ API Database: https://www.themoviedb.org/documentation/api
 
 Firebase docs: https://firebase.google.com/docs/
 
-Demo video: 
+Demo video: https://youtu.be/ddzwpXSA7Sc
