@@ -31,19 +31,17 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 import ie.nr.R;
-import ie.nr.activities.Base;
+import ie.nr.activities.BaseActivity;
 import ie.nr.adapters.ReviewFilter;
 
 import ie.nr.adapters.ReviewListAdapter;
 import ie.nr.models.Review;
 
-import static android.content.Context.MODE_PRIVATE;
-
-public class ReviewFragment extends Fragment implements
+public class ReviewFragment extends BaseFragment implements
         AdapterView.OnItemClickListener,
         View.OnClickListener,
         AbsListView.MultiChoiceModeListener {
-    public Base activity;
+    public BaseActivity activity;
     public static ReviewListAdapter listAdapter;
     public ListView listView;
     public ReviewFilter reviewFilter;
@@ -55,7 +53,6 @@ public class ReviewFragment extends Fragment implements
     public ArrayList<Review> myReviews;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    Gson gson;
 
 
     public ReviewFragment() {
@@ -85,7 +82,7 @@ public class ReviewFragment extends Fragment implements
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        this.activity = (Base) context;
+        this.activity = (BaseActivity) context;
     }
 
     @Override
@@ -146,7 +143,7 @@ public class ReviewFragment extends Fragment implements
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 mFirebaseDatabase.getReference("reviews").child(review.reviewId).removeValue();
-                 // remove from our list
+                // remove from our list
                 listAdapter.notifyDataSetChanged(); // refresh adapter
             }
         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -214,12 +211,12 @@ public class ReviewFragment extends Fragment implements
                     @Override
                     public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            Base.reviewArrayList.clear();
+                            BaseActivity.reviewArrayList.clear();
                             for (DataSnapshot review : dataSnapshot.getChildren()) {
                                 Review rew = review.getValue(Review.class);
-                                Base.reviewArrayList.add(rew);
+                                BaseActivity.reviewArrayList.add(rew);
                                 listView.setAdapter(listAdapter);
-                                listAdapter = new ReviewListAdapter(getContext(), ReviewFragment.this, Base.reviewArrayList);
+                                listAdapter = new ReviewListAdapter(getContext(), ReviewFragment.this, BaseActivity.reviewArrayList);
                                 reviewFilter = new ReviewFilter(activity.app.dbManager, listAdapter);
                                 listAdapter.notifyDataSetChanged();
 

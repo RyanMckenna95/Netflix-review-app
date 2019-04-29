@@ -1,20 +1,41 @@
 package ie.nr.models;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
     public int movieId;
     public String movieTitle;
     public String releaseDate;
     public String movieImage;
     public String movieOverview;
+    public int movieNumber;
 
     public Movie() {
     }
 
-    public Movie(final int movieId, final String movieTitle, final String releaseDate, final String movieImage) {
+    public Movie(final int movieId, final String movieTitle, final String releaseDate, final String movieImage, int movieNumber, String movieOverview) {
         this.movieId = movieId;
         this.movieTitle = movieTitle;
         this.releaseDate = releaseDate;
         this.movieImage = movieImage;
+        this.movieNumber = movieNumber;
+        this.movieOverview = movieOverview;
+    }
+
+    public String getMovieOverview() {
+        return movieOverview;
+    }
+
+    public void setMovieOverview(final String movieOverview) {
+        this.movieOverview = movieOverview;
+    }
+
+    public int getMovieNumber() {
+        return movieNumber;
+    }
+
+    public void setMovieNumber(final int movieNumber) {
+        this.movieNumber = movieNumber;
     }
 
     public int getMovieId() {

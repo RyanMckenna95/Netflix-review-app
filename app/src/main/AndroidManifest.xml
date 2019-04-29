@@ -24,16 +24,19 @@
         </activity>
 
         <activity
-            android:name="ie.nr.activities.Home"
+            android:name="ie.nr.activities.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".activities.LogIn">
+        <activity android:name=".activities.LoginActivity">
 
         </activity>
-        <activity android:name=".activities.Registration">
+        <activity android:name=".activities.RegistrationActivity">
         </activity>
+        <activity android:name=".activities.DetailActivity">
+        </activity>
+
     </application>
 
 </manifest>

@@ -11,9 +11,9 @@ import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
@@ -21,22 +21,23 @@ import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import ie.nr.R;
-import ie.nr.activities.Base;
+import ie.nr.activities.BaseActivity;
 import ie.nr.adapters.TrendingAdapter;
 import ie.nr.models.Movie;
 import ie.nr.models.Review;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class TrendingFragment extends Fragment implements
+public class TrendingFragment extends BaseFragment implements
         AdapterView.OnItemClickListener,
-        View.OnClickListener
-                    {
+        View.OnClickListener {
     public RequestQueue mQueue;
     public RecyclerView mRecyclerView;
     public TrendingAdapter mTrendingAdapter;
@@ -83,36 +84,34 @@ public class TrendingFragment extends Fragment implements
 
     }
 
-    public void getTrendingMovies(){
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, Base.API_URL,
+    public void getTrendingMovies() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, BaseActivity.API_URL,
                 new Listener<JSONObject>() {
                     @Override
                     public void onResponse(final JSONObject response) {
-                        try{
+                        try {
                             int maxTitleSize = 17;
                             JSONArray movieInfo = response.getJSONArray("results");
-                            for(int i = 0; i < movieInfo.length(); i++){
+                            for (int i = 0; i < movieInfo.length(); i++) {
                                 JSONObject movie = movieInfo.getJSONObject(i);
                                 Movie trendingMovies = new Movie();
-                                trendingMovies.movieId = movie.getInt("id");
+                                trendingMovies.movieNumber = movie.getInt("id");
                                 trendingMovies.movieTitle = movie.optString("title");
                                 trendingMovies.releaseDate = movie.optString("release_date");
                                 trendingMovies.movieImage = movie.optString("poster_path");
-                                if(trendingMovies.movieTitle.length()  > maxTitleSize){
+                                trendingMovies.movieOverview = movie.optString("overview");
+                                if (trendingMovies.movieTitle.length() > maxTitleSize) {
                                     trendingMovies.movieTitle = trendingMovies.movieTitle.substring(0, maxTitleSize);
                                 }
-
-                                trendingMovies.setMovieImage(Base.IMAGE_URL + trendingMovies.movieImage);
-
+                                trendingMovies.setMovieImage(BaseActivity.IMAGE_URL + trendingMovies.movieImage);
                                 movieList.add(trendingMovies);
-
                                 mTrendingAdapter = new TrendingAdapter(getContext(), movieList);
                                 mRecyclerView.setAdapter(mTrendingAdapter);
 
                                 mTrendingAdapter.notifyDataSetChanged();
 
                             }
-                        }catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }

@@ -18,11 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import ie.nr.R;
-import ie.nr.activities.Home;
+import ie.nr.activities.MainActivity;
 import ie.nr.main.NetflixReviewApp;
 import ie.nr.models.Review;
 
-public class AddReviewFragment extends Fragment {
+public class AddReviewFragment extends BaseFragment {
 
     private String  mediaName, userReview,addCaption;
     private double  userRating;
@@ -110,7 +110,7 @@ public class AddReviewFragment extends Fragment {
 
 
             //app.dbManager.add(c);
-            startActivity(new Intent(this.getActivity(), Home.class));
+            startActivity(new Intent(this.getActivity(), MainActivity.class));
         } else
             Toast.makeText(
                     this.getActivity(),

@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import ie.nr.R;
 
-public class Registration extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private String email,password;
@@ -57,13 +57,13 @@ public class Registration extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(Registration.this, LogIn.class));
+                            startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                             finish();
                             // updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(Registration.this, "Authentication failed.",
+                            Toast.makeText(RegistrationActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }
@@ -72,5 +72,4 @@ public class Registration extends AppCompatActivity {
                     }
                 });
     }
-
 }

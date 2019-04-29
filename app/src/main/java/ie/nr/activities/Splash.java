@@ -45,7 +45,7 @@ public class Splash extends Activity{
 
                 if (!mIsBackButtonPressed) {
 
-                    Intent intent = new Intent(Splash.this, LogIn.class);
+                    Intent intent = new Intent(Splash.this, LoginActivity.class);
                     Splash.this.startActivity(intent);
                 }
             }

@@ -1,4 +1,4 @@
 package ie.nr.fragments;
 
-public class CalendarFragment {
+public class CalendarFragment extends BaseFragment {
 }

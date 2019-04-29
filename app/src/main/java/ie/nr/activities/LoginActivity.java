@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import ie.nr.R;
 
-public class LogIn extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private String email,password;
@@ -38,7 +38,7 @@ public class LogIn extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                startActivity(new Intent(LogIn.this, Registration.class));
+                startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
             }
         });
 
@@ -66,13 +66,14 @@ public class LogIn extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull final Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            startActivity(new Intent(LogIn.this, Home.class));
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         }else{
-                            Toast.makeText(LogIn.this,
+                            Toast.makeText(LoginActivity.this,
                                     "Login failed please check username and password are correct", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
+
 
 }

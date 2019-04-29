@@ -5,9 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,13 +20,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import ie.nr.R;
-import ie.nr.activities.Base;
+import ie.nr.activities.BaseActivity;
 import ie.nr.main.NetflixReviewApp;
 import ie.nr.models.Review;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class EditFragment extends Fragment {
+public class EditFragment extends BaseFragment {
 
     public boolean isFavourite;
     public int position;
@@ -88,12 +85,12 @@ public class EditFragment extends Fragment {
         editFavourite = v.findViewById(R.id.editFavourite);
         editBtn = v.findViewById(R.id.editReviewBtn);
 
-        name.setText(Base.reviewArrayList.get(position).name);
-        caption.setText(Base.reviewArrayList.get(position).caption);
-        reviewET.setText(Base.reviewArrayList.get(position).review);
-       ratingNum.setValue((int)Base.reviewArrayList.get(position).rating);
+        name.setText(BaseActivity.reviewArrayList.get(position).name);
+        caption.setText(BaseActivity.reviewArrayList.get(position).caption);
+        reviewET.setText(BaseActivity.reviewArrayList.get(position).review);
+        ratingNum.setValue((int) BaseActivity.reviewArrayList.get(position).rating);
 
-        if (Base.reviewArrayList.get(position).favourite == true) {
+        if (BaseActivity.reviewArrayList.get(position).favourite == true) {
             editFavourite.setImageResource(R.drawable.favourites_72_on);
             isFavourite = true;
         } else {
@@ -108,8 +105,8 @@ public class EditFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-       ratingNum.setMinValue(1);
-       ratingNum.setMaxValue(10);
+        ratingNum.setMinValue(1);
+        ratingNum.setMaxValue(10);
         ratingNum.setOnValueChangedListener(onValueChangeListener);
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,8 +135,8 @@ public class EditFragment extends Fragment {
 
 
             if ((!TextUtils.isEmpty(reviewTitle)) || (!TextUtils.isEmpty(reviewCaption)) || (!TextUtils.isEmpty(reviewStr))) {
-                Review newReview = new Review(Base.reviewArrayList.get(position).reviewId, reviewTitle, reviewCaption,ratingValue, reviewStr, true);
-                mDatabase.getReference("reviews").child(Base.reviewArrayList.get(position).reviewId).setValue(newReview);
+                Review newReview = new Review(BaseActivity.reviewArrayList.get(position).reviewId, reviewTitle, reviewCaption,ratingValue, reviewStr, true);
+                mDatabase.getReference("reviews").child(BaseActivity.reviewArrayList.get(position).reviewId).setValue(newReview);
 
 
                 if (getActivity().getSupportFragmentManager().getBackStackEntryCount() > 0) {
