@@ -10,6 +10,8 @@ I use a realm database to give persistence to my user saved reviews. I have now 
 
 i have also changed the search feature to search the themoviedb API's movies. And created a details section for when an movie in the trending list is clicked.
 
+Demo video: https://youtu.be/ddzwpXSA7Sc
+
 ##  Referances
 
 Realm Database: https://ddrohan.github.io/wit-mad-2-2019/topic03-persistence/unit-1//talk-8-realm/realm.pdf
@@ -22,4 +24,4 @@ API Database: https://www.themoviedb.org/documentation/api
 
 Firebase docs: https://firebase.google.com/docs/
 
-Demo video: https://youtu.be/ddzwpXSA7Sc
+firebase login-register: https://www.androidhive.info/2016/06/android-getting-started-firebase-simple-login-registration-auth/
