@@ -102,7 +102,7 @@ public class TrendingFragment extends BaseFragment implements
                                 trendingMovies.movieOverview = movie.optString("overview");
                                 if (trendingMovies.movieTitle.length() > maxTitleSize) {
                                     trendingMovies.movieTitle = trendingMovies.movieTitle.substring(0, maxTitleSize);
-                                }
+                                } // movieImage is the path to image of the movie. adding this to the Image_url returns the image
                                 trendingMovies.setMovieImage(BaseActivity.IMAGE_URL + trendingMovies.movieImage);
                                 movieList.add(trendingMovies);
                                 mTrendingAdapter = new TrendingAdapter(getContext(), movieList);

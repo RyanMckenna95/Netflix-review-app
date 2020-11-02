@@ -18,6 +18,7 @@ import ie.nr.R;
 import ie.nr.models.Movie;
 import ie.nr.models.Review;
 
+// loading themoviedb api trending list , image and a search url
 public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String IMAGE_URL = "https://image.tmdb.org/t/p/w200/";
     public static final String API_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=a9d0e77cbdc5499ba36ac78ea253545a";
