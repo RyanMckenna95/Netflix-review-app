@@ -2,7 +2,7 @@
 
 **Student name: Ryan Mckenna**
 
-**Student Number:20076596**
+
 
 This app is to allow users the write review for content available on netflix. It allows users to write reviews and score them between 1 and 10.
 
@@ -10,7 +10,7 @@ I use a realm database to give persistence to my user saved reviews. I have now 
 
 i have also changed the search feature to search the themoviedb API's movies. And created a details section for when an movie in the trending list is clicked.
 
-Demo video: https://youtu.be/ddzwpXSA7Sc
+
 
 ##  Referances
 
